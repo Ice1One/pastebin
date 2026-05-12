@@ -154,7 +154,16 @@
       cursor: pointer;
       transition: all 0.2s;
     }
+    select:focus {
+      background: var(--bg3);
+      color: var(--text);
+      outline: none;
+    }
 
+select option {
+  background: var(--bg3);
+  color: var(--text);
+}
     select:hover, .ttl-btn:hover {
       border-color: var(--blue);
       background: rgba(59,130,246,0.1);
