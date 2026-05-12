@@ -636,7 +636,7 @@
     }
 
     function showResult(data) {
-      const url = `${API}/p/${data.id}`;
+      const url = window.location.origin + `/p/${data.id}`;
       const expires = new Date(data.expires_at).toLocaleString();
       document.getElementById('result-url').textContent = url;
       document.getElementById('result-expires').textContent = 'Expires: ' + expires;
