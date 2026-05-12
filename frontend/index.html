@@ -346,6 +346,23 @@
       border-color: var(--green);
     }
 
+    .btn-open {
+     background: var(--bg2);
+     border: 1px solid rgba(34,211,238,0.3);
+     color: var(--cyan);
+     font-family: var(--mono);
+     font-size: 11px;
+     padding: 6px 12px;
+     border-radius: 6px;
+     cursor: pointer;
+     transition: all 0.2s;
+     white-space: nowrap;
+   }
+    .btn-open:hover {
+     color: var(--blue);
+     border-color: var(--blue);
+     background: var(--blue-glow);
+   }
     .result-meta {
       display: flex;
       gap: 20px;
@@ -467,6 +484,7 @@
       <div class="url-box">
         <div class="url-text" id="result-url"></div>
         <button class="btn-copy" id="btn-copy" onclick="copyUrl()">Copy</button>
+        <button class="btn-open" onclick="openUrl()">Open ↗</button>
       </div>
       <div class="result-meta">
         <div class="meta-item">🕐 <span id="result-expires"></span></div>
@@ -655,7 +673,10 @@
         btn.classList.remove('copied');
       }, 2000);
     }
-
+    function openUrl() {
+       const url = document.getElementById('result-url').textContent;
+       window.open(url, '_blank');
+      } 
     // Keyboard shortcut Ctrl+Enter
     document.getElementById('content').addEventListener('keydown', e => {
       if (e.ctrlKey && e.key === 'Enter') createPaste();
