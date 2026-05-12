@@ -7,13 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --bg: #0a0e17;
       --bg2: #0f1623;
       --bg3: #151d2e;
       --blue: #3b82f6;
       --blue-dim: #1d4ed8;
+      --blue-glow: rgba(59,130,246,0.15);
       --cyan: #22d3ee;
       --green: #22c55e;
       --red: #ef4444;
@@ -22,7 +22,6 @@
       --border: rgba(59,130,246,0.15);
       --mono: 'JetBrains Mono', monospace;
     }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -31,7 +30,6 @@
       display: flex;
       flex-direction: column;
     }
-
     body::before {
       content: '';
       position: fixed;
@@ -43,8 +41,6 @@
       pointer-events: none;
       z-index: 0;
     }
-
-    /* NAV */
     nav {
       position: sticky;
       top: 0;
@@ -57,37 +53,19 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
-
-    .nav-logo {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--blue);
-      letter-spacing: -0.5px;
-    }
-
+    .nav-logo { font-size: 18px; font-weight: 700; color: var(--blue); letter-spacing: -0.5px; }
     .nav-logo span { color: var(--cyan); }
-
-    .nav-status {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
+    .nav-status { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
     .status-dot {
       width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--green);
       animation: pulse 2s infinite;
     }
-
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
     }
-
-    /* MAIN */
     main {
       position: relative;
       z-index: 1;
@@ -97,28 +75,10 @@
       margin: 0 auto;
       padding: 48px 24px;
     }
-
-    /* HERO */
-    .hero {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-    .hero h1 {
-      font-size: 42px;
-      font-weight: 700;
-      letter-spacing: -2px;
-      margin-bottom: 12px;
-    }
-
+    .hero { text-align: center; margin-bottom: 48px; }
+    .hero h1 { font-size: 42px; font-weight: 700; letter-spacing: -2px; margin-bottom: 12px; }
     .hero h1 span { color: var(--blue); }
-
-    .hero p {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* CARD */
+    .hero p { font-size: 13px; color: var(--muted); }
     .card {
       background: var(--bg2);
       border: 1px solid var(--border);
@@ -126,23 +86,8 @@
       padding: 28px;
       margin-bottom: 24px;
     }
-
-    /* TOOLBAR */
-    .toolbar {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .toolbar-label {
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
+    .toolbar { display: flex; gap: 12px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+    .toolbar-label { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
     select, .ttl-btn {
       background: var(--bg3);
       border: 1px solid var(--border);
@@ -154,34 +99,11 @@
       cursor: pointer;
       transition: all 0.2s;
     }
-    select:focus {
-      background: var(--bg3);
-      color: var(--text);
-      outline: none;
-    }
-
-select option {
-  background: var(--bg3);
-  color: var(--text);
-}
-    select:hover, .ttl-btn:hover {
-      border-color: var(--blue);
-      background: rgba(59,130,246,0.1);
-    }
-
-    .ttl-group {
-      display: flex;
-      gap: 6px;
-      margin-left: auto;
-    }
-
-    .ttl-btn.active {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: #fff;
-    }
-
-    /* EDITOR */
+    select:focus { background: var(--bg3); color: var(--text); outline: none; }
+    select option { background: var(--bg3); color: var(--text); }
+    select:hover, .ttl-btn:hover { border-color: var(--blue); background: rgba(59,130,246,0.1); }
+    .ttl-group { display: flex; gap: 6px; margin-left: auto; }
+    .ttl-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
     .editor-wrapper {
       position: relative;
       border: 1px solid var(--border);
@@ -189,12 +111,10 @@ select option {
       overflow: hidden;
       transition: border-color 0.2s;
     }
-
     .editor-wrapper:focus-within {
       border-color: var(--blue);
       box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
     }
-
     .editor-header {
       display: flex;
       align-items: center;
@@ -203,24 +123,12 @@ select option {
       background: var(--bg3);
       border-bottom: 1px solid var(--border);
     }
-
     .dot { width: 10px; height: 10px; border-radius: 50%; }
     .dot-red { background: #ef4444; }
     .dot-yellow { background: #f59e0b; }
     .dot-green { background: #22c55e; }
-
-    .editor-filename {
-      font-size: 11px;
-      color: var(--muted);
-      margin-left: 8px;
-    }
-
-    .editor-chars {
-      font-size: 11px;
-      color: var(--muted);
-      margin-left: auto;
-    }
-
+    .editor-filename { font-size: 11px; color: var(--muted); margin-left: 8px; }
+    .editor-chars { font-size: 11px; color: var(--muted); margin-left: auto; }
     textarea {
       width: 100%;
       min-height: 280px;
@@ -235,22 +143,9 @@ select option {
       outline: none;
       tab-size: 2;
     }
-    textarea {
-      width: 100%;
-      min-height: 280px;
-      background: var(--bg2);
-      border: none;
-      color: var(--text);
-      textarea::placeholder { color: var(--muted);
-    }
-
-    /* SUBMIT */
-    .submit-row {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 16px;
-    }
-
+    textarea::placeholder { color: var(--muted); }
+    textarea:focus { color: var(--text); background: var(--bg2); outline: none; }
+    .submit-row { display: flex; justify-content: flex-end; margin-top: 16px; }
     .btn-submit {
       background: var(--blue);
       color: #fff;
@@ -266,20 +161,12 @@ select option {
       align-items: center;
       gap: 8px;
     }
-
     .btn-submit:hover {
       background: var(--blue-dim);
       transform: translateY(-1px);
       box-shadow: 0 8px 20px rgba(59,130,246,0.3);
     }
-
-    .btn-submit:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* RESULT */
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
     .result {
       display: none;
       background: var(--bg2);
@@ -288,16 +175,8 @@ select option {
       padding: 24px;
       margin-bottom: 24px;
     }
-
     .result.visible { display: block; }
-
-    .result-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
+    .result-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
     .result-icon {
       width: 32px; height: 32px;
       background: rgba(34,197,94,0.15);
@@ -307,19 +186,8 @@ select option {
       justify-content: center;
       font-size: 16px;
     }
-
-    .result-title {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--green);
-    }
-
-    .result-subtitle {
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
+    .result-title { font-size: 14px; font-weight: 600; color: var(--green); }
+    .result-subtitle { font-size: 11px; color: var(--muted); margin-top: 2px; }
     .url-box {
       display: flex;
       align-items: center;
@@ -330,14 +198,7 @@ select option {
       padding: 12px 16px;
       margin-bottom: 16px;
     }
-
-    .url-text {
-      flex: 1;
-      font-size: 13px;
-      color: var(--cyan);
-      word-break: break-all;
-    }
-
+    .url-text { flex: 1; font-size: 13px; color: var(--cyan); word-break: break-all; }
     .btn-copy {
       background: var(--bg2);
       border: 1px solid var(--border);
@@ -350,44 +211,23 @@ select option {
       transition: all 0.2s;
       white-space: nowrap;
     }
-
-    .btn-copy:hover {
-      color: var(--blue);
-      border-color: var(--blue);
-    }
-
-    .btn-copy.copied {
-      color: var(--green);
-      border-color: var(--green);
-    }
-
+    .btn-copy:hover { color: var(--blue); border-color: var(--blue); }
+    .btn-copy.copied { color: var(--green); border-color: var(--green); }
     .btn-open {
-     background: var(--bg2);
-     border: 1px solid rgba(34,211,238,0.3);
-     color: var(--cyan);
-     font-family: var(--mono);
-     font-size: 11px;
-     padding: 6px 12px;
-     border-radius: 6px;
-     cursor: pointer;
-     transition: all 0.2s;
-     white-space: nowrap;
-   }
-    .btn-open:hover {
-     color: var(--blue);
-     border-color: var(--blue);
-     background: var(--blue-glow);
-   }
-    .result-meta {
-      display: flex;
-      gap: 20px;
+      background: var(--bg2);
+      border: 1px solid rgba(34,211,238,0.3);
+      color: var(--cyan);
+      font-family: var(--mono);
       font-size: 11px;
-      color: var(--muted);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
     }
-
+    .btn-open:hover { color: var(--blue); border-color: var(--blue); background: var(--blue-glow); }
+    .result-meta { display: flex; gap: 20px; font-size: 11px; color: var(--muted); }
     .meta-item { display: flex; align-items: center; gap: 6px; }
-
-    /* ERROR */
     .error-box {
       display: none;
       background: rgba(239,68,68,0.1);
@@ -398,17 +238,13 @@ select option {
       color: var(--red);
       margin-bottom: 16px;
     }
-
     .error-box.visible { display: block; }
-
-    /* STATS */
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-bottom: 24px;
     }
-
     .stat-card {
       background: var(--bg2);
       border: 1px solid var(--border);
@@ -416,22 +252,8 @@ select option {
       padding: 16px 20px;
       text-align: center;
     }
-
-    .stat-value {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--blue);
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 11px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* FOOTER */
+    .stat-value { font-size: 24px; font-weight: 700; color: var(--blue); margin-bottom: 4px; }
+    .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
     footer {
       position: relative;
       z-index: 1;
@@ -441,7 +263,6 @@ select option {
       color: var(--muted);
       border-top: 1px solid var(--border);
     }
-
     @media (max-width: 600px) {
       nav { padding: 12px 20px; }
       main { padding: 32px 16px; }
@@ -452,7 +273,6 @@ select option {
   </style>
 </head>
 <body>
-
   <nav>
     <div class="nav-logo">paste<span>bin</span></div>
     <div class="nav-status">
@@ -460,15 +280,11 @@ select option {
       <span id="nav-count">loading...</span>
     </div>
   </nav>
-
   <main>
-
     <div class="hero">
       <h1>Share code <span>instantly</span></h1>
       <p>Paste your code or text — get a shareable link. Auto-expires.</p>
     </div>
-
-    <!-- STATS -->
     <div class="stats">
       <div class="stat-card">
         <div class="stat-value" id="stat-total">—</div>
@@ -483,11 +299,7 @@ select option {
         <div class="stat-label">Free & Open</div>
       </div>
     </div>
-
-    <!-- ERROR -->
     <div class="error-box" id="error-box"></div>
-
-    <!-- RESULT -->
     <div class="result" id="result-box">
       <div class="result-header">
         <div class="result-icon">✅</div>
@@ -507,8 +319,6 @@ select option {
         <div class="meta-item">🆔 <span id="result-id"></span></div>
       </div>
     </div>
-
-    <!-- FORM -->
     <div class="card">
       <div class="toolbar">
         <span class="toolbar-label">Syntax</span>
@@ -532,7 +342,6 @@ select option {
           <button class="ttl-btn" data-ttl="2592000">30d</button>
         </div>
       </div>
-
       <div class="editor-wrapper">
         <div class="editor-header">
           <div class="dot dot-red"></div>
@@ -541,32 +350,21 @@ select option {
           <span class="editor-filename" id="editor-filename">untitled.txt</span>
           <span class="editor-chars" id="char-count">0 chars</span>
         </div>
-        <textarea
-          id="content"
-          placeholder="Paste your code or text here..."
-          spellcheck="false"
-          autofocus
-        ></textarea>
+        <textarea id="content" placeholder="Paste your code or text here..." spellcheck="false" autofocus></textarea>
       </div>
-
       <div class="submit-row">
         <button class="btn-submit" id="btn-submit" onclick="createPaste()">
           <span>⚡</span> Create Paste
         </button>
       </div>
     </div>
-
   </main>
-
   <footer>
     pastebin · self-hosted · powered by FastAPI + SQLite
   </footer>
-
   <script>
     const API = '';
     let selectedTtl = 86400;
-
-    // TTL buttons
     document.querySelectorAll('.ttl-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.ttl-btn').forEach(b => b.classList.remove('active'));
@@ -575,13 +373,10 @@ select option {
         updateStatTtl();
       });
     });
-
     function updateStatTtl() {
       const map = {3600:'1h', 86400:'24h', 604800:'7d', 2592000:'30d'};
       document.getElementById('stat-ttl').textContent = map[selectedTtl] || '24h';
     }
-
-    // Syntax → filename
     document.getElementById('syntax').addEventListener('change', e => {
       const ext = {
         text:'txt', python:'py', javascript:'js', bash:'sh',
@@ -591,14 +386,9 @@ select option {
       document.getElementById('editor-filename').textContent =
         'untitled.' + (ext[e.target.value] || 'txt');
     });
-
-    // Char count
     document.getElementById('content').addEventListener('input', e => {
-      const len = e.target.value.length;
-      document.getElementById('char-count').textContent = len + ' chars';
+      document.getElementById('char-count').textContent = e.target.value.length + ' chars';
     });
-
-    // Load stats
     async function loadStats() {
       try {
         const res = await fetch(`${API}/health`);
@@ -609,39 +399,27 @@ select option {
         document.getElementById('nav-count').textContent = 'offline';
       }
     }
-
-    // Create paste
     async function createPaste() {
       const content = document.getElementById('content').value.trim();
       const syntax = document.getElementById('syntax').value;
       const btn = document.getElementById('btn-submit');
-
       hideError();
       hideResult();
-
-      if (!content) {
-        showError('Content cannot be empty');
-        return;
-      }
-
+      if (!content) { showError('Content cannot be empty'); return; }
       btn.disabled = true;
       btn.innerHTML = '<span>⏳</span> Creating...';
-
       try {
         const res = await fetch(`${API}/api/paste`, {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({content, syntax, ttl_seconds: selectedTtl})
         });
-
         if (!res.ok) throw new Error('Failed to create paste');
-
         const data = await res.json();
         showResult(data);
         document.getElementById('content').value = '';
         document.getElementById('char-count').textContent = '0 chars';
         loadStats();
-
       } catch (e) {
         showError('Failed to create paste. Is the API running?');
       } finally {
@@ -649,7 +427,6 @@ select option {
         btn.innerHTML = '<span>⚡</span> Create Paste';
       }
     }
-
     function showResult(data) {
       const url = window.location.origin + `/p/${data.id}`;
       const expires = new Date(data.expires_at).toLocaleString();
@@ -657,49 +434,34 @@ select option {
       document.getElementById('result-expires').textContent = 'Expires: ' + expires;
       document.getElementById('result-syntax').textContent = data.syntax;
       document.getElementById('result-id').textContent = data.id;
-      document.getElementById('result-subtitle').textContent =
-        'Your paste is live at the URL below';
+      document.getElementById('result-subtitle').textContent = 'Your paste is live at the URL below';
       document.getElementById('result-box').classList.add('visible');
       document.getElementById('result-box').scrollIntoView({behavior:'smooth'});
     }
-
-    function hideResult() {
-      document.getElementById('result-box').classList.remove('visible');
-    }
-
+    function hideResult() { document.getElementById('result-box').classList.remove('visible'); }
     function showError(msg) {
       const box = document.getElementById('error-box');
       box.textContent = '⚠️ ' + msg;
       box.classList.add('visible');
     }
-
-    function hideError() {
-      document.getElementById('error-box').classList.remove('visible');
-    }
-
+    function hideError() { document.getElementById('error-box').classList.remove('visible'); }
     async function copyUrl() {
       const url = document.getElementById('result-url').textContent;
       await navigator.clipboard.writeText(url);
       const btn = document.getElementById('btn-copy');
       btn.textContent = 'Copied!';
       btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = 'Copy';
-        btn.classList.remove('copied');
-      }, 2000);
+      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
     }
     function openUrl() {
-       const url = document.getElementById('result-url').textContent;
-       window.open(url, '_blank');
-      } 
-    // Keyboard shortcut Ctrl+Enter
+      const url = document.getElementById('result-url').textContent;
+      window.open(url, '_blank');
+    }
     document.getElementById('content').addEventListener('keydown', e => {
       if (e.ctrlKey && e.key === 'Enter') createPaste();
     });
-
     loadStats();
     setInterval(loadStats, 30000);
   </script>
-
 </body>
 </html>
