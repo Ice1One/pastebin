@@ -1,7 +1,9 @@
 version: '3.8'
 
 services:
-  app:
+   app:
+    image: ghcr.io/ice1one/pastebin:latest
+    container_name: pastebin-app:
     build: .
     container_name: pastebin-app
     expose:
