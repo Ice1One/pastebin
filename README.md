@@ -1,7 +1,15 @@
 # 📋 Pastebin — Self-Hosted
 
 > A self-hosted, ephemeral pastebin with auto-expiring pastes, deployed on AWS EC2 via GitHub Actions.
-
+![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.136-009688?style=flat&logo=fastapi&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-29.1-2496ED?style=flat&logo=docker&logoColor=white)
+![nginx](https://img.shields.io/badge/nginx-1.29-009639?style=flat&logo=nginx&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS_EC2-t3.micro-FF9900?style=flat&logo=amazonaws&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-1.15-7B42BC?style=flat&logo=terraform&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-3.45-003B57?style=flat&logo=sqlite&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF?style=flat&logo=githubactions&logoColor=white)
+![Let's Encrypt](https://img.shields.io/badge/Let's_Encrypt-SSL-003A70?style=flat&logo=letsencrypt&logoColor=white)
 ![Build](https://github.com/Ice1One/pastebin/actions/workflows/build.yml/badge.svg)
 ![Deploy](https://github.com/Ice1One/pastebin/actions/workflows/deploy.yml/badge.svg)
 
