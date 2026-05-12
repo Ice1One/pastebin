@@ -226,8 +226,14 @@
       outline: none;
       tab-size: 2;
     }
-
-    textarea::placeholder { color: var(--muted); }
+    textarea {
+      width: 100%;
+      min-height: 280px;
+      background: var(--bg2);
+      border: none;
+      color: var(--text);
+      textarea::placeholder { color: var(--muted);
+    }
 
     /* SUBMIT */
     .submit-row {
