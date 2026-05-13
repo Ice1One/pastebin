@@ -124,7 +124,7 @@ async def get_paste(
     .filename{{font-size:11px;color:var(--muted);margin-left:8px}}
     .copy-btn{{margin-left:auto;background:var(--bg2);border:1px solid var(--border);color:var(--muted);font-family:var(--mono);font-size:11px;padding:5px 12px;border-radius:5px;cursor:pointer;transition:all 0.2s}}
     .copy-btn:hover{{color:var(--blue);border-color:var(--blue)}}
-    pre{{padding:24px;overflow-x:auto;font-size:14px;line-height:1.7;white-space:pre-wrap;word-break:break-word;color:var(--text)}}
+    pre{{padding:0;overflow-x:auto;font-size:14px;line-height:1.7;}}pre code{{padding:24px;display:block;white-space:pre-wrap;word-break:break-word;}}
     footer{{position:relative;z-index:1;text-align:center;padding:20px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);margin-top:40px}}
     @media(max-width:600px){{nav{{padding:12px 20px}}main{{padding:24px 16px}}}}
   </style>
