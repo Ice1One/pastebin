@@ -13,7 +13,9 @@
 ![Build](https://github.com/Ice1One/pastebin/actions/workflows/build.yml/badge.svg)
 ![Deploy](https://github.com/Ice1One/pastebin/actions/workflows/deploy.yml/badge.svg)
 
+
 **🌐 Live: [https://mypaste.duckdns.org/ui](https://mypaste.duckdns.org/ui)**
+**📊 Monitoring: [http://18.184.216.234:3000](http://18.184.216.234:3000)** (Grafana — admin/admin123)
 
 ---
 
@@ -31,7 +33,7 @@
 | 🔒 TLS | Let's Encrypt (certbot) |
 | 📦 Registry | GitHub Container Registry (ghcr.io) |
 | 🏗️ IaC | Terraform |
-
+| 📊 Monitoring | Prometheus + Grafana |
 ---
 
 ## 🏛️ Architecture
