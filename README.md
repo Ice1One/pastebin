@@ -15,8 +15,7 @@
 
 
 **🌐 Live: [https://mypaste.duckdns.org/ui](https://mypaste.duckdns.org/ui)**
-**📊 Monitoring: [http://18.184.216.234:3000](http://18.184.216.234:3000)** (Grafana — admin/admin123)
-
+**📊 Monitoring: [Grafana Dashboard](http://18.184.216.234:3000/d/adchz57/pastebin-monitoring?orgId=1&from=now-6h&to=now&timezone=browser)**
 ---
 
 ## 🏗️ Stack
