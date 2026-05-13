@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 from app.models import PasteCreate, PasteResponse
 from app.database import get_db, init_db
 from app.cleanup import cleanup_loop
+from prometheus_fastapi_instrumentator import Instrumentator
 import aiosqlite
 import asyncio
 import logging
@@ -31,7 +32,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+Instrumentator().instrument(app).expose(app)
 app.mount("/static", StaticFiles(directory="frontend"), name="static")
 
 @app.get("/ui")
