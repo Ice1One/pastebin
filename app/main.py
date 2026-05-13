@@ -103,8 +103,8 @@ async def get_paste(
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Paste {row['id']}</title>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
   <style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
     *{{box-sizing:border-box;margin:0;padding:0}}
     :root{{--bg:#0a0e17;--bg2:#0f1623;--bg3:#151d2e;--blue:#3b82f6;--cyan:#22d3ee;--green:#22c55e;--text:#e2e8f0;--muted:#64748b;--border:rgba(59,130,246,0.15);--mono:'JetBrains Mono',monospace}}
     body{{background:var(--bg);color:var(--text);font-family:var(--mono);min-height:100vh}}
