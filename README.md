@@ -32,7 +32,9 @@
 | 🔒 TLS | Let's Encrypt (certbot) |
 | 📦 Registry | GitHub Container Registry (ghcr.io) |
 | 🏗️ IaC | Terraform |
+| ☸️ Orchestration | Kubernetes (minikube) |
 | 📊 Monitoring | Prometheus + Grafana |
+
 ---
 
 ## 🏛️ Architecture
@@ -44,7 +46,29 @@ FastAPI (gunicorn)
 ↓
 SQLite (Docker Volume)
 ---
+## ☸️ Kubernetes
 
+Local Kubernetes cluster via minikube with 2 replicas for high availability.
+
+```bash
+# Deploy
+kubectl apply -f k8s/deployment.yml
+kubectl apply -f k8s/service.yml
+
+# Scale
+kubectl scale deployment pastebin-app --replicas=3
+
+# Status
+kubectl get pods
+kubectl get services
+```
+
+**Self-healing demo:**
+```bash
+# Delete a pod — Kubernetes automatically creates a new one
+kubectl delete pod <pod-name>
+kubectl get pods  # new pod appears in seconds
+```
 ## 📁 Structure
 pastebin/
 ├── app/
