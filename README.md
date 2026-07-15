@@ -15,6 +15,10 @@
 
 
 ---
+## 🎬 Demo
+
+![Demo](demo.gif)
+---
 
 ## 🏗️ Stack
 
