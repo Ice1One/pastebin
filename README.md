@@ -17,7 +17,7 @@
 ---
 ## 🎬 Demo
 
-![Demo](demo.gif)
+![Demo](demo-pastebin%20(1).gif)
 ---
 
 ## 🏗️ Stack
