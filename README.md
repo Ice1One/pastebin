@@ -14,8 +14,6 @@
 ![Deploy](https://github.com/Ice1One/pastebin/actions/workflows/deploy.yml/badge.svg)
 
 
-**🌐 Live: [https://mypaste.duckdns.org/ui](https://mypaste.duckdns.org/ui)**
-**📊 Monitoring: [Grafana Dashboard](http://18.184.216.234:3000/d/adchz57/pastebin-monitoring?orgId=1&from=now-6h&to=now&timezone=browser)**
 ---
 
 ## 🏗️ Stack
