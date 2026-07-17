@@ -12,8 +12,7 @@
 ![Build](https://github.com/Ice1One/pastebin/actions/workflows/build.yml/badge.svg)
 ![Deploy](https://github.com/Ice1One/pastebin/actions/workflows/deploy.yml/badge.svg)
 
-## 🟢 Live Demo
-> 🟢 **[Live → pastebin-73vo.onrender.com](https://pastebin-73vo.onrender.com/ui)**
+[![Live](https://img.shields.io/badge/🟢_Live-pastebin--73vo.onrender.com-00C853?style=for-the-badge)](https://pastebin-73vo.onrender.com/ui)
 
 ---
 ## 🎬 Demo
