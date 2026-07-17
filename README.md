@@ -15,15 +15,10 @@
 ![Deploy](https://github.com/Ice1One/pastebin/actions/workflows/deploy.yml/badge.svg)
 
 ---
-
 ## 🎬 Demo
-
 ![Demo](demo-pastebin%20(1).gif)
-
 ---
-
 ## 🏗️ Stack
-
 | Layer | Technology |
 |-------|-----------|
 | 🐍 Backend | Python / FastAPI |
@@ -31,11 +26,92 @@
 | 🌐 Reverse Proxy | nginx |
 | 🐳 Container | Docker + Docker Compose |
 | ⚙️ CI/CD | GitHub Actions |
-| ☁️ Hosting | Render (Free tier) |
+| ☁️ Infrastructure | AWS EC2 (t3.micro) + Elastic IP |
+| 🌍 DNS | DuckDNS |
+| 🔒 TLS | Let's Encrypt (certbot) |
+| 📦 Registry | GitHub Container Registry (ghcr.io) |
 | 🏗️ IaC | Terraform |
 | ☸️ Orchestration | Kubernetes (minikube) |
 | 📊 Monitoring | Prometheus + Grafana |
-
 ---
-
 ## 🏛️ Architecture
+internet → DuckDNS → EC2 (Elastic IP)
+↓
+nginx (TLS :443)
+↓
+FastAPI (gunicorn)
+↓
+SQLite (Docker Volume)
+---
+## ☸️ Kubernetes
+Local Kubernetes cluster via minikube with 2 replicas for high availability.
+```bash
+# Deploy
+kubectl apply -f k8s/deployment.yml
+kubectl apply -f k8s/service.yml
+# Scale
+kubectl scale deployment pastebin-app --replicas=3
+# Status
+kubectl get pods
+kubectl get services
+```
+**Self-healing demo:**
+```bash
+# Delete a pod — Kubernetes automatically creates a new one
+kubectl delete pod <pod-name>
+kubectl get pods  # new pod appears in seconds
+```
+## 📁 Structure
+pastebin/
+├── app/
+│   ├── main.py          # FastAPI entrypoint
+│   ├── models.py        # Pydantic schemas
+│   ├── database.py      # SQLite connection
+│   └── cleanup.py       # Background expiry task
+├── frontend/
+│   └── index.html       # Single-page UI
+├── nginx/
+│   └── default.conf     # Reverse proxy + TLS
+├── terraform/
+│   ├── main.tf          # EC2 + EIP + SG
+│   ├── variables.tf
+│   └── outputs.tf
+├── .github/workflows/
+│   ├── build.yml        # Build + push to ghcr.io
+│   └── deploy.yml       # Deploy to EC2
+├── Dockerfile
+└── docker-compose.yml
+---
+## 🚀 API Endpoints
+| Method | Endpoint | Description |
+|--------|---------|-------------|
+| POST | `/api/paste` | Create new paste |
+| GET | `/p/{id}` | Get paste by ID |
+| GET | `/api/paste/{id}/raw` | Get raw content |
+| DELETE | `/api/paste/{id}` | Delete paste |
+| GET | `/health` | Health check |
+---
+## ⚙️ CI/CD Pipeline
+git push → GitHub Actions (Build)
+↓
+docker build
+↓
+push to ghcr.io
+↓
+GitHub Actions (Deploy)
+↓
+SSH to EC2
+↓
+docker compose pull + up
+↓
+✅ Live
+---
+## 🏃 Quick Start (Local)
+```bash
+git clone https://github.com/Ice1One/pastebin.git
+cd pastebin
+docker compose up -d
+open http://localhost/ui
+```
+---
+**Marko Zvarych** · [github.com/Ice1One](https://github.com/Ice1One) · https://pastebin-73vo.onrender.com/ui
